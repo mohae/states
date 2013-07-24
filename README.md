@@ -7,7 +7,8 @@ Varnish and much more.
 
 * Make sure you have Salt Stack [installed](http://salt.readthedocs.org/en/latest/topics/installation/index.html).
 * [Download](https://github.com/kevva/states/archive/master.tar.gz) or clone the
-git repo — `git clone https://github.com/kevva/states.git` — into your states folder.
+git repo — `git clone https://github.com/kevva/states.git` — into your 
+`states/` folder.
 * Configure the Pillar data and run: `salt \* state.highstate`
 
 ## Usage
@@ -228,7 +229,7 @@ Configures [twemproxy](https://github.com/twitter/twemproxy), also known as nutc
 * `hash` — Default is `fnv1a_64`.
 * `hash_tag` — Default is `{}`.
 * `distribution` — Default is `ketama`.
-* `redis` — Whether to listen to redis or memcached. Default is `False`.
+* `redis` — Whether to listen to redis or memcached. Default is `'false'`.
 * `timeout` — The timeout value in msec that we wait for to establish a connection to the server or receive a response from a server. Default is `20000`.
 * `auto_eject_hosts` — A boolean value that controls if server should be ejected temporarily when it fails consecutively server_failure_limit times. Default is `'false'`.
 * `server_retry_timeout` — Default is `30000`.

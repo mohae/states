@@ -8,7 +8,7 @@ twemproxy:
     hash: {{ twemproxy.get('hash', 'fnv1a_64') }}
     hash_tag: "{{ twemproxy.get('hash_tag', '{}') }}"
     distribution: {{ twemproxy.get('distribution', 'ketama') }}
-    redis: {{ twemproxy.get('redis', 'False') }}
+    redis: {{ twemproxy.get('redis', 'false') }}
     timeout: {{ twemproxy.get('timeout', '20000') }}
     auto_eject_hosts: {{ twemproxy.get('auto_eject_hosts', 'false') }}
     server_retry_timeout: {{ twemproxy.get('server_retry_timeout', '30000') }}
