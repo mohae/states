@@ -42,12 +42,7 @@ redis-server:
         - require:
             - pkg: redis-server
 
-/etc/sysctl.d/redis.conf:
-    file.managed:
-        - source: salt://redis/files/redis.conf
-        - require:
-            - pkg: redis-server
-    cmd.wait:
-        - name: sysctl -q -p /etc/sysctl.d/redis.conf
-        - watch:
-            - file: /etc/sysctl.d/redis.conf
+vm.overcommit_memory:
+    sysctl.present:
+        - value: 1
+        - config: /etc/sysctl.d/10-redis.conf
