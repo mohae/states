@@ -1,0 +1,40 @@
+*filter
+
+# Allow all loopback (lo0) traffic and drop all traffic to 127/8 that doesn't use lo0
+-A INPUT -i lo -j ACCEPT
+-A INPUT -i lo -d 127.0.0.0/8 -j REJECT
+
+# Allow all established inbound connections
+-A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
+-A OUTPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
+
+# Allow all outbound traffic
+-A OUTPUT -j ACCEPT
+
+# Allow important ICMP types
+-A INPUT -p icmp -j DROP
+-A INPUT -p icmp --icmp-type echo-reply -j ACCEPT
+-A INPUT -p icmp --icmp-type destination-unreachable -j ACCEPT
+-A INPUT -p icmp --icmp-type time-exceeded -j ACCEPT
+
+# Allow specific ports
+{%- if pillar.get('port_allow', [])|length > 0 %}
+-A INPUT -p tcp -m multiport --dports {{ pillar.port_allow|join(",") }} -j ACCEPT
+{%- endif %}
+
+{%- for port, args in pillar.get('port_allow_from', {}).items() %}
+{%- for source in args %}
+-A INPUT -p tcp --dport {{ port }} -s {{ source }} -j ACCEPT
+{%- endfor %}
+{%- endfor %}
+
+{%- for port in pillar.get('port_limit', []) %}
+-A INPUT -p tcp --dport {{ port }} -m recent --update --name {{ port }} --hitcount 3 --seconds 30 -j REJECT --reject-with icmp-port-unreachable
+-A INPUT -p tcp --dport {{ port }} -m recent --set --name {{ port }} -j ACCEPT
+{%- endfor %}
+
+# Drop all other inbound connections
+-A INPUT -j DROP
+-A FORWARD -j DROP
+
+COMMIT
