@@ -118,7 +118,8 @@ npm:
 
 ### pagespeed
 
-A list of filters to enable in PageSpeed. Example usage:
+A list of [filters](https://developers.google.com/speed/pagespeed/module/filters) 
+to enable in PageSpeed. Example usage:
 
 ```yaml
 pagespeed:
