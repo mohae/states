@@ -129,6 +129,27 @@ pagespeed:
     - sprite_images
 ```
 
+### php-fpm
+
+Configures php-fpm.
+
+* `max_children` — The maximum number of child processes to be created. Default is `50`.
+* `start_servers` — The number of child processes created on startup. Default is `10`.
+* `min_spare_servers` — The desired minimum number of idle server processes. Default is `5`.
+* `max_spare_servers` — The desired maximum number of idle server processes. Default is `20`.
+* `max_requests` — The number of requests each child process should execute before respawning. Default is `500`.
+
+Example usage:
+
+```yaml
+php-fpm:
+    max_children: 75
+    start_servers: 25
+    min_spare_servers: 10
+    max_spare_servers: 30
+    max_requests: 750
+```
+
 ### redis
 
 Configures the redis server.
