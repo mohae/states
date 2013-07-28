@@ -2,6 +2,7 @@ include:
     - system
     - iptables
     - cron
+    - users
 
 common:
     pkg.installed:

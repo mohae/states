@@ -267,6 +267,29 @@ twemproxy:
     server_failure_limit: 1
 ```
 
+### users
+
+Adds and configures users.
+
+* `home` — The path to the home directory. Default is `/home/[username]`.
+* `shell` — The configured shell. Default is `/bin/bash`.
+* `fullname` — Sets the users full name.
+* `groups` — A list of groups assigned to the user.
+* `ssh_auth` — A list of SSH keys assigned to the user.
+
+Example usage:
+
+```yaml
+users:
+    johndoe:
+        fullname: John Doe
+        shell: /bin/zsh
+        groups:
+            - admin
+        ssh_auth:
+            - ssh-rsa 123KJom945+
+```
+
 ### varnish
 
 Configures Varnish.
