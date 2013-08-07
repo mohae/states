@@ -2,7 +2,7 @@ salt-minion:
     pkg:
         - installed
     service.running:
-        - enabled: True
+        - enable: True
         - watch:
             - file: /etc/salt/minion.d/*.conf
         - require:

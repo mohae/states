@@ -2,7 +2,7 @@ salt-master:
     pkg:
         - installed
     service.running:
-        - enabled: True
+        - enable: True
         - watch:
             - file: /etc/salt/master.d/*.conf
         - require:
