@@ -20,6 +20,11 @@ redis-server:
         - require:
             - pkg: redis-server
 
+/etc/redis/redis.conf:
+    file.absent:
+        - require:
+            - file: /etc/redis/common.conf
+
 {% for server in pillar.get('redis', {}).get('servers', []) %}
 /etc/redis/srv{{ server }}.conf:
     file.managed:
