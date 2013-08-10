@@ -205,6 +205,8 @@ Configure salt.
 * `master` — The address to the salt master server. Default is `salt`.
 * `interface` — The address of the interface to bind to. Default is `0.0.0.0`.
 * `state_verbose` — Default is `False`.
+* `fileserver_backend` — Which backend to use. Default is `roots`.
+* `gitfs_remotes` — Which git remotes to pull states from.
 * `file_roots` — Default is `/srv/salt/states`.
 * `pillar_roots` — Default is `/srv/salt/pillars`.
 
@@ -214,6 +216,11 @@ Example usage:
 salt:
     master: foobar.com
     state_verbose: True
+    fileserver_backend:
+        - roots
+        - git
+    gitfs_remotes:
+        - https://github.com/kevva/states.git
 ```
 
 ### sites
