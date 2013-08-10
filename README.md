@@ -7,7 +7,7 @@ Varnish and much more.
 
 * Make sure you have Salt Stack [installed](http://salt.readthedocs.org/en/latest/topics/installation/index.html).
 * [Download](https://github.com/kevva/states/archive/master.tar.gz) or clone the
-git repo — `git clone https://github.com/kevva/states.git` — into your 
+git repo — `git clone https://github.com/kevva/states.git` — into your
 `states/` folder.
 * Configure the Pillar data and run: `salt \* state.highstate`
 
@@ -118,7 +118,7 @@ npm:
 
 ### pagespeed
 
-A list of [filters](https://developers.google.com/speed/pagespeed/module/filters) 
+A list of [filters](https://developers.google.com/speed/pagespeed/module/filters)
 to enable in PageSpeed. Example usage:
 
 ```yaml
@@ -128,6 +128,25 @@ pagespeed:
     - lazyload_images
     - prioritize_critical_css
     - sprite_images
+```
+
+### php
+
+Configures php.
+
+* `max_execution_time` — The maximum time in seconds a script is allowed to run before it is terminated by the parser. Default is `25`.
+* `max_file_uploads` — The maximum number of files allowed to be uploaded simultaneously. Default is `20`.
+* `memory_limit` — The maximum amount of memory in bytes that a script is allowed to allocate. Default is `256M`.
+* `post_max_size` — The maximum size of post data allowed. Default is `50M`.
+* `upload_max_filesize` — The maximum size of an uploaded file. Default is `50M`.
+
+Example usage:
+
+```yaml
+php:
+    max_execution_time: 15
+    max_file_uploads: 50
+    memory_limit: 512M
 ```
 
 ### php-fpm
