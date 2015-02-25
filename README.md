@@ -1,3 +1,13 @@
+This is a fork of https://github.com/kevva/states. Pull requests should be made there. 
+
+I, mohae, do not currently use this repo. I have come to prefer including example pillars. As such the following are currently maintained by me:
+
+[Saltbase](https://github.com/mohae/saltbase): A basic server deployment using a masterless minion.
+[Salted](https://github.com/mohae/salted): A multi-environment, multi-role, master-minion salt deployment that can be used as a basis for actual server deployment or for quick usage via Vagrant (includes VagrantFile).
+[salt-iptables]: A salt formula like modular iptables state with pillars. This is not called a formula because I don't follow all of SaltStack's salt formula conventions since I wanted to include all of the pillar examples for this state.
+
+Odds are, if I'm using a state and I am making a base version of it publicly available, I have either created a separate repo for it, and added its link to the list above, or it exists within the [Salted](https://github.com/mohae/salted) repo.
+
 # states
 
 A basic set of Salt Stack states for setting up a server with nginx, PageSpeed,
