@@ -1,4 +1,4 @@
-This is a fork of https://github.com/kevva/states. Pull requests should be made there. 
+This is a fork of https://github.com/kevva/states, though this one probably has been more recently maintained.
 
 I, mohae, do not currently use this repo. I have come to prefer including example pillars. As such the following are currently maintained by me:
 
